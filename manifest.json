@@ -1,0 +1,45 @@
+{
+  "id": "openlearn-plugin-learnstar",
+  "name": "LearnStar Planet Connector",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "description": "学宠星球 (LearnStar Planet) 官方互通插件 - 课堂行为积分驱动125种学宠进化、名册对齐与大屏互动直达",
+  "author": "OpenLearn Team",
+  "requires": [
+    "@openlearn/core:IEventBusService@^1.0.0"
+  ],
+  "engines": {
+    "openlearn": ">=0.3.15"
+  },
+  "api": {
+    "routes": [
+      { "method": "GET", "path": "/config", "roles": ["administrator", "teacher"] },
+      { "method": "POST", "path": "/config", "roles": ["administrator", "teacher"] },
+      { "method": "POST", "path": "/test-connection", "roles": ["administrator", "teacher"] },
+      { "method": "GET", "path": "/classes", "roles": ["administrator", "teacher"] },
+      { "method": "POST", "path": "/sync-roster", "roles": ["administrator", "teacher"] },
+      { "method": "POST", "path": "/give-score", "roles": ["administrator", "teacher"] },
+      { "method": "GET", "path": "/pets-overview", "roles": ["administrator", "teacher", "student"] },
+      { "method": "GET", "path": "/pet-species", "auth": false }
+    ]
+  },
+  "configuration": {
+    "properties": {
+      "learnstar_base_url": {
+        "type": "string",
+        "default": "http://localhost:8000",
+        "description": "学宠星球服务端 API 基地址 (例如: https://planet.your-school.edu.cn)"
+      },
+      "auto_sync_assignment_score": {
+        "type": "boolean",
+        "default": true,
+        "description": "是否在 OpenLearn 作业批改打分后自动为学生对应的学宠同步加分"
+      },
+      "auto_sync_attendance": {
+        "type": "boolean",
+        "default": true,
+        "description": "是否在课堂考勤签到后自动发放学宠成长积分"
+      }
+    }
+  }
+}

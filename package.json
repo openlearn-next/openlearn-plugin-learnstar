@@ -1,0 +1,32 @@
+{
+  "name": "openlearn-plugin-learnstar",
+  "version": "1.0.0",
+  "description": "OpenLearn 与学宠星球 (LearnStar Planet) 互通插件 - 支持课堂积分联动宠物成长进化、班级名册对齐与大屏互动",
+  "type": "module",
+  "private": true,
+  "author": "OpenLearn Team",
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "npx tsx test/verify.mjs",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.zip"
+  },
+  "dependencies": {
+    "@openlearn/plugin-sdk": "^3.6.1"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "esbuild": "^0.25.0",
+    "jszip": "^3.10.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}
